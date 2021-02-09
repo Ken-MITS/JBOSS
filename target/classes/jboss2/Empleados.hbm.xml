@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 3 feb. 2021 16:22:37 by Hibernate Tools 5.4.12.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="empleados" dynamic-insert="false" dynamic-update="false" mutable="true" name="jboss2.Empleados" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="empleados">
+        <composite-id class="jboss2.EmpleadosId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="nombre" type="string">
+                <column length="20" name="nombre"/>
+            </key-property>
+            <key-property name="apellidos" type="string">
+                <column length="25" name="apellidos"/>
+            </key-property>
+            <key-property name="salario" type="java.lang.Double">
+                <column name="salario" precision="22" scale="0"/>
+            </key-property>
+            <key-property name="codeDept" type="java.lang.Integer">
+                <column name="code_dept"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="jboss2.Departamentos" embed-xml="true" fetch="select" insert="false" name="departamentos" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="code_dept"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

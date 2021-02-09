@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 3 feb. 2021 16:22:37 by Hibernate Tools 5.4.12.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="empleados" dynamic-insert="false" dynamic-update="false" mutable="true" name="jboss2.Departamentos" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="departamentos">
+        <id name="codDept" type="java.lang.Integer">
+            <column name="cod_dept"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="nombre" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="nombre"/>
+        </property>
+        <property generated="never" lazy="false" name="direccion" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="direccion"/>
+        </property>
+        <property generated="never" lazy="false" name="objetivos" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="objetivos"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="empleadoses" optimistic-lock="true" sort="unsorted" table="empleados">
+            <key on-delete="noaction">
+                <column name="code_dept"/>
+            </key>
+            <one-to-many class="jboss2.Empleados" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>
